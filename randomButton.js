@@ -7,8 +7,7 @@ const puppeteer = require("puppeteer");
   const page = await browser.newPage();
   //   web address to go to
   // log a response code ?? -> try/catch, .then/catch
-  const pollPageResponse = await page
-    .goto("https://pollev.com/qainterview880")
+  const pollPageResponse = await page.goto("https://pollev.com/qainterview880")
     .then((res) => {
       return { status: res.status(200), message: "pollPage goto() success" };
     })
@@ -18,7 +17,6 @@ const puppeteer = require("puppeteer");
         message: err,
       })
     );
-  console.log(pollPageResponse, "res");
   //   wait for component on page to be loaded (visible on DOM)
   await page.waitForSelector(
     ".component-response-multiple-choice__option__vote"
@@ -48,15 +46,27 @@ const puppeteer = require("puppeteer");
     buttonsArr[indexPosition].click();
   });
 
-  //   CHECK OUTPUTTED WEBPAGE -> https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
+  //   ACCESS RESULTS WEBPAGE -> https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 
-  await page.goto(
-    "https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf"
-  );
+ const resultsPageResponse =  await page.goto(
+      "https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf"
+    )
+    .then((res) => {
+      return { status: res.status(200), message: "resultsPage goto() success" };
+    })
+    .catch((err) =>
+      console.log("resultsPage goto() failed", {
+        status: res.status(404),
+        message: err,
+      })
+    );
+    console.log(resultsPageResponse)
+
   //   multiple choice #id -> id="options_multiple_choice_poll_instance_28696495"
-  //   await page.waitForSelector(
-  //     ".component-response-multiple-choice__option__vote"
-  //   );
+//   wait for poll results container to be visible on DOM
+    await page.waitForSelector(
+        "#options_multiple_choice_poll_instance_28696495"
+    );
 
   /* 
 access poll results div for each option 
@@ -69,6 +79,27 @@ access poll results div for each option
     - 3: #id poll_option_51559431
 
 */
+// console.log on results page
+page.on("console", (msg) => {
+    console.log("consoleLog:", msg.text());
+  });
+
+    // Access Neutral results
+    await page.evaluate(() => {
+        // html access elements on DOM with class
+        const neutralResultsDiv = document.querySelector(
+          "#poll_option_51559428"
+        );
+        const neutralTextDiv = document.querySelector(
+            "#keyword_poll_option_51559428"
+          );
+        const neutralText = neutralTextDiv.nextElementSibling.innerText
+
+        const neutralPercentageSpan = document.querySelector("#percent_label_poll_option_51559428").innerText
+
+        console.log(neutralPercentageSpan.innerText, "neutral")
+    })
+
 
   //close the browser window (end)
   await browser.close();
