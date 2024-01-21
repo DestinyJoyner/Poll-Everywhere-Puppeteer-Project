@@ -9,6 +9,10 @@ And automate observing the response here.:
 
 https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 
+### Deployed Site
+  - **Netlify Deployment**
+    - [Access Live Site here](https://destinyj-poll-everywhere-2024.netlify.app/)
+
 ### Project Overview
 
 - **Project Description:**
@@ -43,7 +47,8 @@ https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 npm install
 ```
 This will install the libraries needed to run the tests.
-  - Open Web View of the index.html file.
+  - Open Web View of the index.html file
+
 
 
 
