@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+// function to go to poll page -> random click a button (choice, then go to results page (scrape percentage for each option and return data in object))
 
 (async () => {
   // debug warning : passing `headless: "new"` to `puppeteer.launch()`
@@ -18,19 +19,21 @@ const puppeteer = require("puppeteer");
         message: err,
       })
     );
+
+  // log pollPage status response
+  console.log(pollPageResponse);
+
   //   wait for component on page to be loaded (visible on DOM)
   await page.waitForSelector(
     ".component-response-multiple-choice__option__vote"
   );
 
-  //   page.$$ function returns an array of ElementHandles for all elements that match the specified selector.
-  //   const buttonParent = await page.$$(".component-response-multiple-choice__option__vote");
-
   //  console.log within page.evaluate doesn't print to the Node.js console directly. It logs to the browser's console in the context of the page.
   page.on("console", (msg) => {
     console.log("consoleLog:", msg.text());
   });
-  await page.evaluate(() => {
+  //   access all buttons with same class on poll page/ random index position and perform click()
+  const buttonClickedPollPage = await page.evaluate(() => {
     // html access elements on DOM with class
     const buttons = document.querySelectorAll(
       ".component-response-multiple-choice__option__vote"
@@ -41,11 +44,16 @@ const puppeteer = require("puppeteer");
     // each obj within arr holds all properties of element (target,children,innerHTML etc..so can access)
     const buttonsArr = [...buttons].map((button) => button);
     // print out which button was clicked to see corresponding update on output page
-    console.log(indexPosition, buttonsArr);
+    // console.log(indexPosition, buttonsArr[indexPosition].innerText);
+    const buttonClickValue = buttonsArr[indexPosition].innerText;
 
     // perform click function on button at random index
     buttonsArr[indexPosition].click();
+
+    return buttonClickValue;
   });
+
+  console.log(buttonClickedPollPage);
 
   //   ACCESS RESULTS WEBPAGE -> https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 
@@ -62,6 +70,7 @@ const puppeteer = require("puppeteer");
         message: err,
       })
     );
+  // log results page access status response
   console.log(resultsPageResponse);
 
   //   multiple choice #id -> id="options_multiple_choice_poll_instance_28696495"
