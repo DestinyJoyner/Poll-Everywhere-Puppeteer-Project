@@ -20,11 +20,14 @@ const puppeteer = require("puppeteer");
 //   const buttonParent = await page.$$(".component-response-multiple-choice__option__vote");
 
 //  console.log within page.evaluate doesn't print to the Node.js console directly. It logs to the browser's console in the context of the page.
+// difference btw page.$eval() && page.evaluate()
   page.on('console', (msg) => {
-    console.log('PAGE LOG:', msg.text());
+    console.log('consoleLog:', msg.text());
   });
 await page.evaluate(() => {
    const buttons =  document.querySelectorAll(".component-response-multiple-choice__option__vote")
+//    to try and avoid massive clicking of first [0] button
+// const childIndex = (Math.floor(Math.random() * buttons.length)) == 0 ? 3 : 2;
    const childIndex = Math.floor(Math.random() * buttons.length);
   const buttonsArr = [...buttons].map(button => button)
 console.log(childIndex, buttonsArr)
