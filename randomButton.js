@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+
 // function to go to poll page -> random click a button (choice, then go to results page (scrape percentage for each option and return data in object))
 
 (async () => {
@@ -86,14 +87,13 @@ access poll results div for each option
     - 1: #id poll_option_51559429
     - 2: #id: poll_option_51559430
     - 3: #id poll_option_51559431
-
 */
   // console.log on results page
   page.on("console", (msg) => {
     console.log("consoleLog:", msg.text());
   });
 
-  // Access Neutral results => function to iterate for all id values
+  // Access poll results => function to iterate for all id values
   const pollResultsObj = await page.evaluate(() => {
     // html access elements on DOM with class
     // element id arr for results page
