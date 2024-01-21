@@ -1,16 +1,29 @@
 const puppeteer = require("puppeteer");
 
 (async () => {
-    // debug warning : passing `headless: "new"` to `puppeteer.launch()`
-  const browser = await puppeteer.launch({headless: "new"});
+  // debug warning : passing `headless: "new"` to `puppeteer.launch()`
+  const browser = await puppeteer.launch({ headless: "new" });
   //   open new browser window
   const page = await browser.newPage();
   //   web address to go to
-  await page.goto("https://pollev.com/qainterview880");
+  // log a response code ?? -> try/catch, .then/catch
+  const pollPageResponse = await page
+    .goto("https://pollev.com/qainterview880")
+    .then((res) => {
+      return { status: res.status(200), message: "pollPage goto() success" };
+    })
+    .catch((err) =>
+      console.log("pollPage goto() failed", {
+        status: res.status(404),
+        message: err,
+      })
+    );
+  console.log(pollPageResponse, "res");
   //   wait for component on page to be loaded (visible on DOM)
   await page.waitForSelector(
     ".component-response-multiple-choice__option__vote"
   );
+
   //   page.$$ function returns an array of ElementHandles for all elements that match the specified selector.
   //   const buttonParent = await page.$$(".component-response-multiple-choice__option__vote");
 
@@ -35,27 +48,27 @@ const puppeteer = require("puppeteer");
     buttonsArr[indexPosition].click();
   });
 
+  //   CHECK OUTPUTTED WEBPAGE -> https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 
-//   CHECK OUTPUTTED WEBPAGE -> https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
+  await page.goto(
+    "https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf"
+  );
+  //   multiple choice #id -> id="options_multiple_choice_poll_instance_28696495"
+  //   await page.waitForSelector(
+  //     ".component-response-multiple-choice__option__vote"
+  //   );
 
-await page.goto("https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf");
-//   multiple choice #id -> id="options_multiple_choice_poll_instance_28696495"
-await page.waitForSelector(
-  ".component-response-multiple-choice__option__vote"
-);
-
-/* 
+  /* 
 access poll results div for each option 
     - 0: #id poll_option_51559428
         - letter option : span #id: keyword_poll_option_51559428
-        - option Text (neutral) div class "break-all" -> span
+        - option Text (neutral) div class "break-all" -> span (Text selectors??? -p-text)
         - percentVal: div #id: percent_label_poll_option_51559428
     - 1: #id poll_option_51559429
     - 2: #id: poll_option_51559430
     - 3: #id poll_option_51559431
 
 */
-
 
   //close the browser window (end)
   await browser.close();
