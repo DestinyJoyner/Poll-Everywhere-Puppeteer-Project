@@ -24,6 +24,17 @@ const fetchRandom = async () => {
     }
   }
 
+//   fetch for specific button click
+const fetchSpecific = async (buttonValue) => {
+    try {
+      const fetchResponse = await fetch(`${API}/poll?choice=${buttonValue}`);
+      const resJson = await fetchResponse.json();
+      return resJson;
+    } catch (err) {
+      console.error("Specific fetch failed", err);
+    }
+  }
+
   
   
 
@@ -31,4 +42,5 @@ const fetchRandom = async () => {
   export {
     fetchResults,
     fetchRandom,
+    fetchSpecific
   }

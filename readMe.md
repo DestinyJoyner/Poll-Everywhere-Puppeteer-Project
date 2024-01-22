@@ -11,7 +11,7 @@ https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 
 ### Deployed Site
   - **Netlify Deployment**
-    - [Access Live Site here](https://destinyj-poll-everywhere-2024.netlify.app/)
+    - [Access Live Site here](https://joynerd-poll-everywhere.netlify.app/)
 
 ### Project Overview
 
