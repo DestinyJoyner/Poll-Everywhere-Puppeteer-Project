@@ -12,10 +12,23 @@ const fetchResults = async () => {
       console.error("Results fetch failed", err);
     }
   }
+
+//   fetch for random click
+const fetchRandom = async () => {
+    try {
+      const fetchResponse = await fetch(`${API}/poll`);
+      const resJson = await fetchResponse.json();
+      return resJson;
+    } catch (err) {
+      console.error("Random fetch failed", err);
+    }
+  }
+
   
   
 
 
   export {
     fetchResults,
+    fetchRandom,
   }
