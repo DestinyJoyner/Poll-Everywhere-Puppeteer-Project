@@ -1,10 +1,10 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require('puppeteer');
 
 // function to go to poll page -> random click a button (choice, then go to results page (scrape percentage for each option and return data in object))
 
 (async () => {
   // debug warning : passing `headless: "new"` to `puppeteer.launch()`
-  const browser = await puppeteer.launch({ headless: "new" });
+  const browser = await launch({ headless: "new" });
   //   open new browser window
   const page = await browser.newPage();
   //   web address to go to

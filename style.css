@@ -33,3 +33,13 @@ header {
 .header-icons svg:hover {
     cursor: pointer;
 }
+
+
+/* Card Container */
+.card-container {
+    border: 1px solid red;
+    display: grid;
+    align-items: center;
+    height: fit-content;
+    padding: 5px;
+}
