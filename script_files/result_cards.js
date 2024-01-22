@@ -1,5 +1,9 @@
-import { accessResultsPage } from "../button_click_functions/access_results_page.js"
+import { fetchResults } from "./fetchFunctions.js"
 
-const resultsObj = accessResultsPage()
+try {
+    const resultsObj = await fetchResults();
+    console.log(resultsObj, "call made");
+  } catch (error) {
+    console.log(error);
+  }
 
-console.log(accessResultsPage, "script access")
