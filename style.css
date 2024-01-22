@@ -1,0 +1,45 @@
+header {
+    height: 75px;
+    background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #ffffff 70%,
+    #007acc 70%,
+    #007acc 100%
+  );
+  box-shadow:2px 2px 2px rgb(201, 200, 200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+}
+
+.pe-logo {
+    height: 60px;
+    padding: 10px;
+}
+
+.header-icons {
+    margin-right: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.header-icons svg {
+    height: 40px;
+    fill: white;
+}
+
+.header-icons svg:hover {
+    cursor: pointer;
+}
+
+
+/* Card Container */
+.card-container {
+    border: 1px solid red;
+    display: grid;
+    align-items: center;
+    height: fit-content;
+    padding: 5px;
+}
