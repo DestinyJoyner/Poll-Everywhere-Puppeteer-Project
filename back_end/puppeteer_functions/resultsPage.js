@@ -1,8 +1,10 @@
 const puppeteer = require("puppeteer");
 
 async function accessResultsPage() {
-    const resultsPageResponse = await page
-    .goto(
+    const browser = await puppeteer.launch({ headless: "new" });
+    const page = await browser.newPage();
+
+    const resultsPageResponse = await page.goto(
       "https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf"
     )
     .then((res) => {
@@ -41,11 +43,11 @@ async function accessResultsPage() {
 
     return pollResultsData;
   });
-  console.log(pollResultsObj, "results");
+//   console.log(pollResultsObj, "results");
 
   await browser.close();
 
   return pollResultsObj
 }
 
-module.exports = accessResultsPage
+module.exports = {accessResultsPage}

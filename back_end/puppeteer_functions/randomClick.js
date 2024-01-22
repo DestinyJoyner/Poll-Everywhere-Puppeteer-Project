@@ -120,6 +120,7 @@ access poll results div for each option
   //close the browser window (end)
   await browser.close();
 
+//   return obj with option clicked and results obj
   return {choice : buttonClickedPollPage, results: pollResultsObj}
 }
 
