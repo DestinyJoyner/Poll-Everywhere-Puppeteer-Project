@@ -1,5 +1,7 @@
 const puppeteer = require("puppeteer");
 
+// function that access and scrapes the results page for values of each poll option percentage
+
 async function accessResultsPage() {
     const browser = await puppeteer.launch({ headless: "new" });
     const page = await browser.newPage();
