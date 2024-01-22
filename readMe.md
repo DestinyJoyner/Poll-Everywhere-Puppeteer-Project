@@ -47,7 +47,20 @@ https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 npm install
 ```
 This will install the libraries needed to run the tests.
+```
+cd back_end
+npm install
+npm start
+```
+This will start the back end Express Server
+  
+  **Viewing the Client Side**
+  - (Choose One): 
   - Open Web View of the index.html file
+  - Access the [Live Site here](https://joynerd-poll-everywhere.netlify.app/)
+
+  **Due to deployment issues between Render/Puppeteer currently the server is best to be ran locally at this time**
+  
 
 
 
