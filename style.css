@@ -32,16 +32,16 @@ header {
 
 header span {
     font-size: 20px;
-    align-self: center;
     color: white;
     /* margin-right: 50px; */
 }
 
 .header-icons {
     margin-right: 10px;
-    width: 300px;
+    width: 350px;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 .header-icons svg {
     height: 40px;
