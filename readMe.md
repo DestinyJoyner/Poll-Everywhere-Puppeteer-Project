@@ -12,6 +12,10 @@ https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 ### Deployed Site
   - **Netlify Deployment**
     - [Access Live Site here](https://joynerd-poll-everywhere.netlify.app/)
+  - **Render Deployment**
+    - [Access API here](https://puppeteer-chrome-pe.onrender.com/)
+
+  (*Due to the API being depolyed on Render's free tier service, there is an extended run time for the responses from the API, take this into consideration when accessing the Live Site. For faster runtime, run the server locally*)
 
 ### Project Overview
 
@@ -53,13 +57,24 @@ npm install
 npm start
 ```
 This will start the back end Express Server
+
+-**Testing with Supertest:**
+  - The back end Express server includes Supertest test functions to check for:
+    - Response codes
+    - Expected response.body object properties and values
+    - Testing for the content type in the headers response to be JSON.
+  - Navigate to the back_end directory and run:
+  ```
+npm test
+```
+This will run all the test included.
   
   **Viewing the Client Side**
   - (Choose One): 
   - Open Web View of the index.html file
   - Access the [Live Site here](https://joynerd-poll-everywhere.netlify.app/)
 
-  **Due to deployment issues between Render/Puppeteer currently the server is best to be ran locally at this time**
+  
   
 
 

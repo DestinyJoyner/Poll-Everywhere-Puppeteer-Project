@@ -15,7 +15,7 @@ randomButton.addEventListener("click", async (e) => {
 
   updateResultsContainer(randomResponse.results);
 
-  console.log(randomResponse.choice);
+  // console.log(randomResponse.choice);
 });
 
 // neutral
@@ -43,6 +43,6 @@ buttonArr.forEach((el, i) =>
     const specificResponse = await fetchSpecific(buttonValues[i]);
     updateResultsContainer(specificResponse.results);
 
-    console.log(specificResponse.choice);
+    // console.log(specificResponse.choice);
   })
 );

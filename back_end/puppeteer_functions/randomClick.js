@@ -45,7 +45,7 @@ async function randomClick() {
     // each obj within arr holds all properties of element (target,children,innerHTML etc..so can access)
     const buttonsArr = [...buttons].map((button) => button);
     // print out which button was clicked to see corresponding update on output page
-    console.log(indexPosition, buttonsArr[indexPosition].innerText);
+    // console.log(indexPosition, buttonsArr[indexPosition].innerText);
     const buttonClickValue = buttonsArr[indexPosition].innerText;
 
     // perform click function on button at random index
