@@ -9,13 +9,13 @@ randomButton.addEventListener("click", async (e) => {
 
   const h3Tag = document.querySelector("h3");
   h3Tag.innerHTML = ""
-  h3Tag.textContent = `${randomResponse.choice}`
+  h3Tag.textContent = `Random Option Selected: ${randomResponse.choice}`
 
 //   pollButtonsDiv.insertAdjacentElement("afterend", buttonClickedHeader);
 
-  updateResultsContainer(randomResponse.results);
+  updateResultsContainer(randomResponse.results.pollResults);
 
-  // console.log(randomResponse.choice);
+  console.log(randomResponse);
 });
 
 // neutral
@@ -41,8 +41,9 @@ buttonArr.forEach((el, i) =>
     const h3Tag = document.querySelector("h3");
   h3Tag.innerHTML = ""
     const specificResponse = await fetchSpecific(buttonValues[i]);
-    updateResultsContainer(specificResponse.results);
+    h3Tag.innerHTML = `Option Selected: ${specificResponse.choice}`
+    updateResultsContainer(specificResponse.results.pollResults);
 
-    // console.log(specificResponse.choice);
+    console.log(specificResponse);
   })
 );
