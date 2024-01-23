@@ -41,6 +41,7 @@ https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 
 - **Framework/Library:**
   - Puppeteer
+  - SuperTest
 
 ### Usage
 
