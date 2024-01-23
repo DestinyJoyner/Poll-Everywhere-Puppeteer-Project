@@ -59,7 +59,7 @@ npm start
 ```
 This will start the back end Express Server
 
--**Testing with Supertest:**
+- **Testing with Supertest:**
   - The back end Express server includes Supertest test functions to check for:
     - Response codes
     - Expected response.body object properties and values
