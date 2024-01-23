@@ -13,7 +13,7 @@ https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
   - **Netlify Deployment**
     - [Access Live Site here](https://joynerd-poll-everywhere.netlify.app/)
   - **Render Deployment**
-    - [Access API here](https://puppeteer-chrome-pe.onrender.com/)
+    - [Access API here](https://poll-everywhere-puppeteer-api.onrender.com)
 
   (*Due to the API being depolyed on Render's free tier service, there is an extended run time for the responses from the API, take this into consideration when accessing the Live Site. For faster runtime, run the server locally*)
 
