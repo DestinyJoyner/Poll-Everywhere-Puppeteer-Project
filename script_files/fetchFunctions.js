@@ -35,10 +35,6 @@ const fetchSpecific = async (buttonValue) => {
     }
   }
 
-  
-  
-
-
   export {
     fetchResults,
     fetchRandom,

@@ -1,8 +1,8 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require("puppeteer");
 
-// function to go to poll page -> random click a button (choice, then go to results page (scrape percentage for each option and return data in object))
+// function selects sepcific value of button to click (str -> neutral, ramshackle, hearth, malevolent)
 
-async function specificOptionClick (choiceVal) {
+async function specificOptionClick(choiceVal) {
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
 
@@ -30,26 +30,26 @@ async function specificOptionClick (choiceVal) {
     console.log("consoleLog:", msg.text());
   });
 
-    // pass parameter by using second argument in page.evaluate b/c it runs in the context of the browser page, and it doesn't have direct access to variables from the Node.js environment.
+  // pass parameter by using second argument in page.evaluate b/c it runs in the context of the browser page, and it doesn't have direct access to variables from the Node.js environment.
   const buttonClickedPollPage = await page.evaluate((choiceVal) => {
     const buttons = document.querySelectorAll(
       ".component-response-multiple-choice__option__vote"
     );
     // for specific button, filter out based on innerText of element
-    const button = [...buttons].filter((el) => el.innerText.toLowerCase() === choiceVal);
+    const button = [...buttons].filter(
+      (el) => el.innerText.toLowerCase() === choiceVal
+    );
     // perform click on returned button element
     button[0].click();
     // return inner Text value of button clicked
     return button[0].innerText;
   }, choiceVal);
 
-
-
   //close the browser window (end)
   await browser.close();
 
-//   return obj with option clicked and results obj
-  return buttonClickedPollPage
+  //   return obj with option clicked -> jest test for vale inputted here to === val returned??
+  return buttonClickedPollPage;
 }
 
-module.exports = {specificOptionClick}
+module.exports = { specificOptionClick };
