@@ -1,6 +1,7 @@
-const API = "http://localhost:3001";
+const API = "https://poll-everywhere-puppeteer-api.onrender.com";
 // runs faster locally
-// "https://poll-everywhere-project.onrender.com";
+// http://localhost:3001
+// "https://poll-everywhere-puppeteer-api.onrender.com";
 
 // fetch to results endpoint
 const fetchResults = async () => {
