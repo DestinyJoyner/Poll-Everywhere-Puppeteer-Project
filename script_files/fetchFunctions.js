@@ -1,4 +1,4 @@
-const API = "https://poll-everywhere-puppeteer-api.onrender.com";
+const API = "http://localhost:3001";
 // runs faster locally
 // http://localhost:3001
 // "https://poll-everywhere-puppeteer-api.onrender.com";

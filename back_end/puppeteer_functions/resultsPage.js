@@ -6,16 +6,19 @@ async function accessResultsPage() {
     const browser = await puppeteer.launch({ headless: "new" });
     const page = await browser.newPage();
 
-    const resultsPageResponse = await page.goto(
+    const resultsPageResponse = 
+    await page.goto(
       "https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf"
     )
     .then((res) => {
+      
       return { status: res.status(200), message: "resultsPage goto() success" };
+      
     })
     .catch((err) =>
       console.log("resultsPage goto() failed", {
-        status: res.status(404),
-        message: err,
+        status: 404,
+        message: err.message,
       })
     );
   // log results page access status response

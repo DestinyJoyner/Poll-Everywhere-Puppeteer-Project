@@ -13,7 +13,7 @@ async function specificOptionClick(choiceVal) {
     })
     .catch((err) =>
       console.log("pollPage goto() failed", {
-        status: res.status(404),
+        status: 404,
         message: err,
       })
     );
