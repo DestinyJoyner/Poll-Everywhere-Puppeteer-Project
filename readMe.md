@@ -28,9 +28,17 @@ https://viz.polleverywhere.com/multiple_choice_polls/AxE2ULWiYsaGgmZ0Zundf
 
 - **Displaying Results:**
   - Upon selecting a choice, the updated results from the results page are displayed to the user.
+  - A detailed response from the API (status code, page scraping data) is printed in the console
+```
+Open DevTools in your browser
+Select the Console tab
+```
+
 
 - **Status Codes:**
   - Status codes are included to represent whether the automated framework successfully accessed the webpages.
+
+
 
 ### Technologies Used
 
