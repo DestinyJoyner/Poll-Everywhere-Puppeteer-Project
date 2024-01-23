@@ -65,13 +65,12 @@ This will start the back end Express Server
     - Expected response.body object properties and values
     - Testing for the content type in the headers response to be JSON.
   - Navigate to the back_end directory and run:
-  ```
+```
 npm test
 ```
 This will run all the test included.
   
-  **Viewing the Client Side**
-  - (Choose One): 
+- **Viewing the Client Side** (Choose One): 
   - Open Web View of the index.html file
   - Access the [Live Site here](https://joynerd-poll-everywhere.netlify.app/)
 
