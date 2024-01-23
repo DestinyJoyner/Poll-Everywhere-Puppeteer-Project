@@ -19,7 +19,7 @@ async function accessResultsPage() {
       })
     );
   // log results page access status response
-  console.log(resultsPageResponse);
+  // console.log(resultsPageResponse);
 
   await page.waitForSelector("#options_multiple_choice_poll_instance_28696495");
 
@@ -49,7 +49,7 @@ async function accessResultsPage() {
 
   await browser.close();
 
-  return pollResultsObj
+  return {status: resultsPageResponse, pollResults: pollResultsObj}
 }
 
 module.exports = {accessResultsPage}

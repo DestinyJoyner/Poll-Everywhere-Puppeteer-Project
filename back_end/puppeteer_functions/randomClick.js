@@ -22,7 +22,7 @@ async function randomClick() {
     );
 
   // log pollPage status response
-  console.log(pollPageResponse);
+  // console.log(pollPageResponse);
 
   //   wait for component on page to be loaded (visible on DOM)
   await page.waitForSelector(
@@ -58,7 +58,7 @@ async function randomClick() {
   await browser.close();
 
   //   return option clicked
-  return buttonClickedPollPage;
+  return {status: pollPageResponse, buttonClicked: buttonClickedPollPage};
 }
 
 module.exports = { randomClick };

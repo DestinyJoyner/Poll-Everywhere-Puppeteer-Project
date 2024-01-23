@@ -20,7 +20,10 @@ polls.get("/", async (req,res) => {
     // run function to scrape results page
     const resultsPageData = await accessResultsPage()
 
-    res.status(200).json({choice: choice, results: resultsPageData })
+    res.status(200).json({
+        status: choice.status,
+        choice: choice.buttonClicked, 
+        results: resultsPageData })
     
 })
 

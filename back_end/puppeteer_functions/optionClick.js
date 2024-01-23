@@ -19,7 +19,7 @@ async function specificOptionClick(choiceVal) {
     );
 
   // log pollPage status response
-  console.log(pollPageResponse);
+  // console.log(pollPageResponse);
 
   //   wait for component on page to be loaded (visible on DOM)
   await page.waitForSelector(
@@ -49,7 +49,7 @@ async function specificOptionClick(choiceVal) {
   await browser.close();
 
   //   return obj with option clicked -> jest test for vale inputted here to === val returned??
-  return buttonClickedPollPage;
+  return {status: pollPageResponse, buttonClicked: buttonClickedPollPage};
 }
 
 module.exports = { specificOptionClick };
